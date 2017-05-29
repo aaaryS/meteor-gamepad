@@ -1,5 +1,5 @@
-import { Meteor } from 'meteor/meteor';
+import { Actions } from '../imports/api/actions.js';
 
-Meteor.startup(() => {
-  // code to run on server at startup
+Meteor.publish('actions', token => {
+  return Actions.find({token});
 });
