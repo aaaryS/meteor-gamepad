@@ -9,21 +9,49 @@ class Desktop extends Component {
     token: PropTypes.string.isRequired,
   }
 
+  static defaultProps = {
+  }
+
   render() {
+    const { deviceorientation } = this.props
     return (
       <div className="ui container">
         <header>
           <h1 className="ui header">Meteor gamepad - Desktop</h1>
-
-          <div className="ui icon message">
-            <i className="inbox icon"></i>
+          <div className="ui icon yellow tiny message">
+            <i className="info icon"></i>
             <div className="content">
               <div className="header">
-                {`visit ${window.location.href}${this.props.token}`}
+                {`Visit ${window.location.href}${this.props.token} with you phone.`}
               </div>
             </div>
           </div>
         </header>
+
+        <table className="ui celled table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Type</th>
+              <th>Payload</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.actions.map(a => (
+              <tr key={a._id}>
+                <td>
+                  {a.createdAt.toString()}
+                </td>
+                <td>
+                  {a.type}
+                </td>
+                <td>
+                  {JSON.stringify(a.payload)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
@@ -32,7 +60,11 @@ class Desktop extends Component {
 export default createContainer(({token}) => {
   Meteor.subscribe('actions', token)
 
+  const actions = Actions.find({token}, { sort: { createdAt: -1 }}).fetch()
+
   return {
-    actions: Actions.find({token}).fetch()
+    deviceorientation,
+    actions: actions.filter(a => a.type !== 'deviceorientation'),
+
   };
 }, Desktop);

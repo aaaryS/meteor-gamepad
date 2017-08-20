@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
+import Pad from '../components/Pad.jsx';
+
 export default class Mobile extends Component {
 
   static propTypes = {
@@ -9,9 +11,10 @@ export default class Mobile extends Component {
   onClick = (p = this.props) => () => {
     Meteor.call('actions.insert', {
       token: p.match.params.token,
-      type: 'click',
+      type: 'click'
     });
   }
+
 
   render() {
     return (
@@ -19,6 +22,7 @@ export default class Mobile extends Component {
         <header>
           <h1 className="ui header">Meteor gamepad - Mobile</h1>
           <button className='ui primary basic button' onClick={this.onClick()}>Click me</button>
+          <Pad />
         </header>
       </div>
     );

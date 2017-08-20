@@ -1,0 +1,209 @@
+$basicWidth: 580;
+$basicHeight: 220;
+
+.pad {
+  align-items: center;
+  background: #cccccc;
+  border-radius: 5px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.pad__inner-background {
+  background: black;
+  border-radius: 5px;
+  height: 190 / $basicHeight * 100%;
+  margin: 15px auto 0 auto;
+  width: 560 / $basicWidth * 100%;
+  position: relative;
+}
+
+.pad__cross-buttons{
+  width: 124 / $basicWidth * 100%;
+  height: 138 / $basicHeight * 100%;
+  position: relative;
+  margin-left: 36 / $basicWidth * 100%;
+  top: 47 / $basicHeight * 100%;
+}
+
+.pad__cross-buttons__button {
+  width: 33.3%;
+  height: 33.3%;
+  background: black;
+  border: 3px solid #cccccc;
+}
+
+.pad__cross-buttons__button__circle {
+  width: 60%;
+  height: 60%;
+  margin: 20%;
+  border-radius: 50%;
+
+  background: linear-gradient(45deg, rgba(61, 61, 61, 1) 0%, rgba(14,14,14,1) 100%);
+}
+
+.pad__cross-buttons__button--top {
+  position: absolute;
+  top: 0;
+  left: 33.3%;
+  border-bottom: 0;
+  padding-bottom: 3px;
+  border-radius: 5px 5px 0 0;
+}
+
+.pad__cross-buttons__button--bottom {
+  position: absolute;
+  bottom: 0;
+  left: 33.3%;
+  border-top: 0;
+  padding-top: 3px;
+  border-radius: 0 0 5px 5px;
+}
+
+.pad__cross-buttons__button--left {
+  position: absolute;
+  left: 0;
+  top: 33.3%;
+  border-right: 0;
+  padding-right: 3px;
+  border-radius: 5px 0 0 5px;
+}
+
+.pad__cross-buttons__button--right {
+  position: absolute;
+  right: 0;
+  top: 33.3%;
+  border-left: 0;
+  padding-left: 3px;
+  border-radius: 0 5px 5px 0;
+}
+
+.pad__cross-buttons__button--middle {
+  position: absolute;
+  left: 33.3%;
+  top: 33.3%;
+  border-width: 0;
+
+  &::after{
+    bottom: 0;
+  }
+
+  &::after, &::before{
+    content: '';
+    width: 100%;
+    height: 3px;
+    display: block;
+    border-left: 3px solid #cccccc;
+    border-right: 3px solid #cccccc;
+    position: absolute;
+  }
+}
+
+.pad__round-btn {
+  width: 62 / $basicWidth * 100%;
+  height: 70 / $basicHeight * 100%;
+  background: #cdcdcd;
+  position: absolute;
+  top: 114 / $basicHeight * 100%;
+  border-radius: 5px;
+}
+
+.pad__round-btn__circle {
+  width: 72%;
+  height: 72%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff5050 0%,#930101 100%);
+  top: 14%;
+  left: 14%;
+  position: relative;
+  box-shadow: 1px 1px 4px 1px black;
+}
+
+.pad__round-btn__label {
+  font-family: 'Share', cursive;
+  position: absolute;
+  top: 100%;
+  color: #f30000;
+}
+
+.pad__round-btn--a{
+  right: 52 / $basicWidth * 100%;
+}
+
+.pad__round-btn--b{
+  right: 132 / $basicWidth * 100%;
+}
+
+.pad__menu {
+  position: absolute;
+  left: 200 / $basicWidth * 100%;
+  width: 150 / $basicWidth * 100%;
+  top: 0;
+  height: 100%;
+}
+
+.pad__menu__btn {
+  display: block;
+  height: 35 / $basicHeight * 100%;
+  background: #939596;
+  margin-bottom: 13 / $basicHeight * 100%;
+  border-radius: 5px;
+  font-family: 'Share', cursive;
+  display: flex;
+  align-items: center;
+
+  > span {
+    width: 50%;
+    display: inline-block;
+    float: left;
+    text-align: center;
+    color: #f30000;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+.pad__menu__btn--top {
+  height: 30 / $basicHeight * 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.pad__menu__btn--bottom {
+  height: 20 / $basicHeight * 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.pad__menu__btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 60 / $basicHeight * 100%;
+  background: #7b8083;
+  margin-bottom: 14 / $basicHeight * 100%;
+  background: #cdcdcd;
+  border-radius: 5px;
+}
+
+.pad__menu__btn-wrapper__btn {
+  width: 30%;
+  height: 40%;
+  background: black;
+  display: block;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.pad__title {
+  font-family: 'Share', cursive;
+  color: #f30000;
+  position: absolute;
+  top: 30 / $basicHeight * 100%;
+  left: 400 / $basicWidth * 100%;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+}
